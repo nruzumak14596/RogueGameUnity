@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Exit : MonoBehaviour {
+public class Exit : MonoBehaviour
+{
 
 	void Start ()
     {
