@@ -21,7 +21,7 @@ public class StartDoor : MonoBehaviour
         if (previewRoom != null)
         {
             GameManager.gameManager.ChangeRoom(previewRoom);
-            Player.CurrentPlayer.transform.position = GameManager.gameManager.CurrentRoom.ExitDoor.GetComponent<ExitDoor>().exitPosition;
+            Player.CurrentPlayer.MoveBehavior.Teleport(GameManager.gameManager.CurrentRoom.ExitDoor.GetComponent<ExitDoor>().exitPosition);
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum Orientation
@@ -10,7 +11,8 @@ public enum Orientation
     Down = 3
 }
 
-public class MapGenerator : MonoBehaviour {
+public class MapGenerator : MonoBehaviour
+{
 
     public GameObject floorPrefab;
     public GameObject startDoorPrefab;
@@ -74,9 +76,7 @@ public class MapGenerator : MonoBehaviour {
                     element = Instantiate(wallPrefab, dungeonRoom.wallParent.transform);
                 else
                 {
-                    element = Instantiate(floorPrefab, dungeonRoom.floorParent.transform); ;
-                    element.GetComponent<SpriteRenderer>().color = new Color(
-                    Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+                    element = Instantiate(floorPrefab, dungeonRoom.floorParent.transform);
                 }
 
                 element.transform.position = new Vector3(i, j, 0);
@@ -113,19 +113,19 @@ public class MapGenerator : MonoBehaviour {
         switch (direction)
         {
             case Orientation.Top:
-                doorPosition = new Vector3(Random.Range(2, width - 1), height, 0);
+                doorPosition = new Vector3(Random.Range(2, width), height, 0);
                 exitPosition = doorPosition + Vector3.down;
                 break;
             case Orientation.Down:
-                doorPosition = new Vector3(Random.Range(2, width - 1), 1, 0);
+                doorPosition = new Vector3(Random.Range(2, width ), 1, 0);
                 exitPosition = doorPosition + Vector3.up;
                 break;
             case Orientation.Left:
-                doorPosition =  new Vector3(1, Random.Range(2, height - 1), 0);
+                doorPosition =  new Vector3(1, Random.Range(2, height), 0);
                 exitPosition = doorPosition + Vector3.right;
                 break;
             case Orientation.Right:
-                doorPosition =  new Vector3(width, Random.Range(2, height - 1), 0);
+                doorPosition =  new Vector3(width, Random.Range(2, height), 0);
                 exitPosition = doorPosition + Vector3.left;
                 break;               
         }

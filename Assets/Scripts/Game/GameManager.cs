@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         CurrentRoom = firstRoom;
 
         Player.CurrentPlayer = Instantiate(playerPrefab).GetComponent<Player>();
-        Player.CurrentPlayer.transform.position = firstRoom.StartDoor.GetComponent<StartDoor>().exitPosition;
+        Player.CurrentPlayer.MoveBehavior.Teleport(firstRoom.StartDoor.GetComponent<StartDoor>().exitPosition);
     }
 
     public void ChangeRoom(DungeonRoom newRoom = null)

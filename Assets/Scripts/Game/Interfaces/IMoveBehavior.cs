@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : BaseEnemy
+public interface IMoveBehavior
 {
-
+    void Move(Vector3 offset);
 }

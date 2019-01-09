@@ -23,6 +23,6 @@ public class ExitDoor : MonoBehaviour
         if (nextRoom == null)
             nextRoom = GameManager.gameManager.CurrentRoom;
 
-        Player.CurrentPlayer.transform.position = GameManager.gameManager.CurrentRoom.StartDoor.GetComponent<StartDoor>().exitPosition;
+        Player.CurrentPlayer.MoveBehavior.Teleport(GameManager.gameManager.CurrentRoom.StartDoor.GetComponent<StartDoor>().exitPosition);
     }
 }
